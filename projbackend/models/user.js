@@ -33,7 +33,7 @@ const uuidv1 = require('uuid/v1');
        type:Number,
        default:0
    },
-   purchases : {
+   appointments : {
        type: Array,
        default: []
    }
