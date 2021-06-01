@@ -7,7 +7,8 @@ import './style.css';
 export default function Home(){
     return (
         <Base>
-        <img src={doctor} alt="doctor" style={{opacity:0.5}}/>;
+       {//<img src={doctor} alt="doctor" style={{opacity:0.5}}/>;
+     }  
         </Base>
     )
 }

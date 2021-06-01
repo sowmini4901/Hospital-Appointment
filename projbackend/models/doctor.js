@@ -36,6 +36,10 @@ const doctorSchema = new mongoose.Schema({
         data: Buffer,
         contentType: String
     },
+    appointments : {
+        type: Array,
+        default: []
+    }
     
 }, {timestamps:true});
 

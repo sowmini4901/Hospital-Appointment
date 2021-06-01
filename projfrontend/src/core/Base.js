@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav from "./Nav";
 import "./style.css";
+import Specialize from './Specialize';
 const Base=({
     title="Online Hospital Appointment",
     description="VIT AP",
@@ -18,6 +19,8 @@ const Base=({
              </div>
              <div className={className}>{children}</div>
          </div>
+         <Specialize />
+        
          <footer className="footer footer-container mt-auto py-3">
              <div className="container-fluid bg-success text-center">
                  <h4>If you got any questions, feel free to reach out!</h4>
