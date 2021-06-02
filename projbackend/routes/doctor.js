@@ -1,7 +1,7 @@
 var express = require("express");
 var router=express.Router();
 
-const {getDoctorById, createDoctor, getDoctor, photo, deleteDoctor, updateDoctor}=require("../controllers/doctor");
+const {getDoctorById, createDoctor, getDoctor, photo, deleteDoctor, updateDoctor, getAllDoctors, getAllUniqueCategories}=require("../controllers/doctor");
 const {isSignedIn, isAuthenticated, isAdmin}=require("../controllers/auth");
 const {getCategoryById}=require("../controllers/category");
 const {getUserById}=require("../controllers/user");
@@ -23,7 +23,7 @@ router.delete("/doctor/:doctorId/:userId",isSignedIn,isAuthenticated,isAdmin, de
 router.put("/doctor/:doctorId/:userId",isSignedIn,isAuthenticated,isAdmin,updateDoctor);
 
 //listing route
+router.get("/doctors", getAllDoctors);
 
-
-
+router.get("/doctors/categories", getAllUniqueCategories);
 module.exports=router;

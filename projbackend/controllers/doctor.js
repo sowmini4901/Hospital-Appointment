@@ -144,3 +144,51 @@ exports.updateDoctor = (req, res)=>{
     });
 }
 
+//product listing
+
+exports.getAllDoctors=(req, res)=>{
+    let limit= req.query.limit ? parseInt(req.query.limit): 8
+    let sortBy = req.query.sortBy ? req.query.sortBy: "_id";
+    Doctor.find().select("-photo").populate("category").sort([[sortBy, "asc"]]).limit(limit).exec((err, doctors)=>{
+        if(err){
+            return res.status(400).json({
+                error:"Unable to retrieve data from db"
+            })
+        }
+        res.json(doctors);
+    })
+};
+
+exports.getAllUniqueCategories = (req, res)=>{
+    Doctor.distinct("category",{}, (err, category)=>{
+        if(err){
+            return res.status(400).json({
+                error: "NO category found"
+            })
+        }
+        res.json(category);
+    });
+};
+
+//middleware for frontend
+exports.updateAvailable = (req, res, next)=>{
+   let myOperations = req.body.order.products.map(prod=>{
+     return {
+         updateOne:{
+             filter:{id: prod._id},
+             update:{$inc: {available: -prod.count, booked: +prod.count}}
+         }
+     }
+   })
+
+   Doctor.bulkWrite(myOperations,{}, (err, doctors)=>{
+     if(err){
+         return res.status(400).json({
+             error: "Bulk Operations failed"
+         })
+     }
+     next();
+   });
+
+}
+
