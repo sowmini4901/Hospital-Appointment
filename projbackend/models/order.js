@@ -2,8 +2,6 @@ const mongoose = require("mongoose");
 const {ObjectId} = mongoose.Schema;
 
 
-
-
 const cartSchema = new mongoose.Schema({
     doctor:{
         type: ObjectId,
@@ -22,6 +20,11 @@ const bookSchema=new mongoose.Schema({
     isCashOnDelivery: Boolean,
     amount: {type: Number},
     address: String,
+    status: {
+        type: String,
+        default: "Upcoming",
+        enum:["Cancelled", "Consulted", "Upcoming"]
+    },
     updated: Date,
     user: {
         type: ObjectId,
