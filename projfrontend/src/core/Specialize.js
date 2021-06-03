@@ -31,8 +31,6 @@ function Specialize() {
     return (
       //desired target/end state
       <div>
-        <h2>Let's get started!</h2>
-        <p>This is also visible...</p>
         {category.map((item, index) => {
         return (
           <ExpenseItem

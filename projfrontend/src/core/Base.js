@@ -19,7 +19,7 @@ const Base=({
              </div>
              <div className={className}>{children}</div>
          </div>
-         <Specialize />
+     {/* <Specialize /> */}
         
          <footer className="footer footer-container mt-auto py-3">
              <div className="container-fluid bg-success text-center">
@@ -74,7 +74,7 @@ const Base=({
              </section>
              <div className="container text-center">
                  <span>
-                 © Copyright 2021 Online Store
+                 © Copyright 2021 Online Hospital Appointment
                  </span>
              </div>
          </footer>

@@ -1,13 +1,14 @@
 import React from 'react'
 import {Link, withRouter} from "react-router-dom"
 import "./style.css"
+import {signout, isAuthenticated} from "../auth/helper/index"
 
 const currentTab=(history, path)=>{
     if(history.location.pathname===path){
         return {color: "#E03B8B"};
     }
     else{
-        return {color: "#000000"};
+        return {color: "#FFFFFF"};
     }
 }
 const Nav = ({history}) => (
@@ -19,8 +20,8 @@ const Nav = ({history}) => (
             </Link>
         </li>
         <li className="nav-item">
-            <Link style={currentTab(history,"/shop")} className="nav-link" to="/shop">
-                About
+            <Link style={currentTab(history,"/appointment")} className="nav-link" to="/appointment">
+                Doctors
             </Link>
         </li>
         <li className="nav-item">
@@ -29,7 +30,7 @@ const Nav = ({history}) => (
             </Link>
         </li>
         <li className="nav-item">
-            <Link style={currentTab(history,"/Signup")} className="nav-link" to="/Signup">
+            <Link style={currentTab(history,"/signup")} className="nav-link" to="/signup">
                 Signup
             </Link>
         </li>
@@ -39,12 +40,13 @@ const Nav = ({history}) => (
             </Link>
         </li>
         <li className="nav-item">
-            <Link style={currentTab(history,"/Cart")} className="nav-link" to="/Cart">
+            <Link style={currentTab(history,"/Booked")} className="nav-link" to="/Booked">
                 Appointment
             </Link>
         </li>
+  
         <li className="nav-item">
-            <Link style={currentTab(history,"/Signout")} className="nav-link" to="/Signout">
+            <Link style={currentTab(history,"/signout")} className="nav-link" to="/Signout">
                 Signout
             </Link>
         </li>
