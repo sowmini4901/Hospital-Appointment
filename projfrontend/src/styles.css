@@ -5,8 +5,12 @@
 }
 
 body {
-  background: #02B290;
+ 
   color: #ffffff;
 }
 
-
+footer{
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+}

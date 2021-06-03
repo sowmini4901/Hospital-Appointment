@@ -42,16 +42,11 @@ export const authenticate=(data, next)=>{
 
 export const signout = next =>{
     if(typeof window !== "undefined"){
-        localStorage.remove("jwt");
+        localStorage.removeItem("jwt");
         next();
     }
     return fetch(`${API}/signout`,{
-        method: "GET",
-        headers:{
-            Accept: "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify()
+        method: "GET"
     })
     .then(response=>console.log("signed out"))
     .catch(err => console.log(err));

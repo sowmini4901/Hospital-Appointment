@@ -6,8 +6,8 @@ import {signin, authenticate, isAuthenticated} from "../auth/helper/index"
 const Signin = () =>{
 
     const [values, setValues] = useState({
-        email:"",
-        password:"",
+        email:"sowmi@gmail.com",
+        password:"sowmxi",
         error:"",
         loading:false,
         didRedirect: false
@@ -42,10 +42,10 @@ const Signin = () =>{
     const performRedirect=()=>{
         if(didRedirect){
             if(user && user.role===1){
-                return <p>redirect to admin</p>
+                return <Redirect to="/admin/dashboard" />
             }
             else{
-                return <p>redirect to user dashboard</p>
+                return <Redirect to="/user/dashboard" />
             }
         }
         if(isAuthenticated()){
@@ -82,11 +82,11 @@ const Signin = () =>{
                  <div className="col-md-6 offset-sm-3 text-left">
                  <form>  
                     <div className="form-group">
-                        <label className="text-light">Email</label>
+                        <label className="text-dark">Email</label>
                         <input className="form-control"  onChange={handleChange("email")} type="text" value={email} />
                     </div> 
                     <div className="form-group">
-                        <label className="text-light">Password</label>
+                        <label className="text-dark">Password</label>
                         <input className="form-control"  onChange={handleChange("password")} type="password" value={password} />
                     </div>
                     <button onClick={onSubmit} className="btn btn-success btn-block">Sign in</button> 
@@ -103,7 +103,7 @@ const Signin = () =>{
         {loadingMessage()}
         {errorMessage()}
         
-        <p className="text-white text-center">{JSON.stringify(values)}</p>
+        <p className="text-dark text-center">{JSON.stringify(values)}</p>
         </Base>
     );
 };

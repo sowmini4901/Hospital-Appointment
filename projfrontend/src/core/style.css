@@ -1,4 +1,49 @@
-
+#hero {
+    width: 100%;
+    height: 100vh;
+    background: url("./doc.jpg") top center;
+    background-size: cover;
+  }
+  
+  #hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #000000;
+  }
+  
+  #hero span {
+    color: #000000;
+    margin-bottom: 50px;
+    font-size: 26px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  
+@media (min-width: 1024px) {
+    #hero {
+      background-attachment: fixed;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #hero h1 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+    #hero h2 {
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 30px;
+    }
+  }
+  li :hover{
+      color: #5A20CB;
+  }
+  .navbar-inner {
+    background:transparent;
+}
 .footer-container{
     background-color: #242424;
     padding: 4rem 0 2rem 0;
@@ -6,4 +51,6 @@
     flex-direction: column;
     justify-content: center;
     align-self: center;
+    position: relative;
+    
 }

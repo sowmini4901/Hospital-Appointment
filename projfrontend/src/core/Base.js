@@ -1,25 +1,55 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav from "./Nav";
-import "./style.css";
+ import "./style.css";
 import Specialize from './Specialize';
+import Typist from 'react-typist';
+import "../../src/styles.css"
 const Base=({
-    title="Online Hospital Appointment",
-    description="VIT AP",
+    title="Want a Doctor Appointment?",
+    title2="Choose the doctor",
+    description="Book an Appointment Online",
+    title3="Consult Doctor without any stress!!",
     className=" p-4",
     children
 })=>{
     return (
      <div>
          <Nav />
-         <div className="container-fluid">
-             <div className="jumbotron text-center">
-                 <h2 className="display-4">{title}</h2>
-                 <p className="lead">{description}</p>
-             </div>
-             <div className={className}>{children}</div>
-         </div>
+        
      {/* <Specialize /> */}
+     {/* <section id="hero" className="d-flex flex-column justify-content-center align-items-center">
+    <div className="hero-container" data-aos="fade-in">
+      <h1>{title}</h1>
+    <Typist>
+    <span> {title2} </span>
+  <Typist.Backspace count={19} delay={200} />
+  <span> {description} </span>
+  <Typist.Backspace count={28} delay={200} />
+  <span> {title3} </span>
+      </Typist>
+    </div>
+  </section> */}
+   
+      {/* <div className="jumbotron text-white text-center">
+        <h2 className="display-4">{title}</h2>
+        <p className="lead">{description}</p>
+      </div> */}
+      <section id="hero" className="d-flex flex-column justify-content-center align-items-center">
+    <div className="hero-container" data-aos="fade-in">
+      <h1>{title}</h1>
+    <Typist>
+    <span> {title2} </span>
+  <Typist.Backspace count={19} delay={200} />
+  <span> {description} </span>
+  <Typist.Backspace count={28} delay={200} />
+  <span> {title3} </span>
+      </Typist>
+    </div>
+  </section> 
+      <div className={className}>{children}</div>
+    
+ 
         
          <footer className="footer footer-container mt-auto py-3">
              <div className="container-fluid bg-success text-center">

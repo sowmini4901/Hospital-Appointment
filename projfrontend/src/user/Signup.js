@@ -67,15 +67,15 @@ const errorMessage=()=>{
                  <div className="col-md-4 offset-sm-4 text-left">
                  <form>
                     <div className="form-group">
-                        <label className="text-light">Name</label>
+                        <label className="">Name</label>
                         <input className="form-control" onChange={handleChange("name")} type="text" value={name} />
                     </div>  
                     <div className="form-group">
-                        <label className="text-light">Email</label>
+                        <label className="">Email</label>
                         <input className="form-control" onChange={handleChange("email")} type="text" value={email}/>
                     </div> 
                     <div className="form-group">
-                        <label className="text-light">Password</label>
+                        <label className="">Password</label>
                         <input className="form-control" onChange={handleChange("password")}type="password" value={password}/>
                     </div>
                    
