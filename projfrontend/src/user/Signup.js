@@ -64,22 +64,24 @@ const errorMessage=()=>{
     const signupForm = ()=>{
         return(
             <div className="row signup">
-                 <div className="col-md-4 offset-sm-4 text-left">
+                 <div className="col-md-3 offset-sm-4 text-left">
                  <form>
                     <div className="form-group">
                         <label className="text-dark">Name</label>
-                        <input className="form-control" onChange={handleChange("name")} type="text" value={name} />
+                        <input className="form-control rounded-pill" onChange={handleChange("name")} type="text" value={name} />
                     </div>  
                     <div className="form-group">
                         <label className="text-dark">Email</label>
-                        <input className="form-control" onChange={handleChange("email")} type="text" value={email}/>
+                        <input className="form-control rounded-pill" onChange={handleChange("email")} type="text" value={email}/>
                     </div> 
                     <div className="form-group">
                         <label className="text-dark">Password</label>
-                        <input className="form-control" onChange={handleChange("password")}type="password" value={password}/>
+                        <input className="form-control rounded-pill" onChange={handleChange("password")}type="password" value={password}/>
                     </div>
-                   
-                    <button onClick={onSubmit} className="btn btn-success btn-block">Sign Up</button> 
+                   <br />
+                   <div className="text-center">
+                    <button onClick={onSubmit} className="btn btn-primary btn-block rounded-pill">Sign Up</button> 
+                    </div>
                 </form>    
                  </div>     
 

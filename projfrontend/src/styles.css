@@ -6,11 +6,12 @@
 
 body {
  
-  color: #ffffff;
+  color: #000000;
 }
 
-footer{
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+     
 }

@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import Base from "../core/Base"
 import {Link, Redirect} from "react-router-dom"
-
+import './style.css'
 import {signin, authenticate, isAuthenticated} from "../auth/helper/index"
 const Signin = () =>{
 
@@ -78,18 +78,22 @@ const Signin = () =>{
 
     const signinForm = ()=>{
         return(
-            <div className="row">
-                 <div className="col-md-6 offset-sm-3 text-left">
+            <div className="card shadow p-3 mb-5 bg-body rounded">
+                 <div className="col-md-3 offset-sm-4 text-left col-3">
                  <form>  
                     <div className="form-group">
                         <label className="text-dark">Email</label>
-                        <input className="form-control"  onChange={handleChange("email")} type="text" value={email} />
+                        <input className="form-control rounded-pill"  placeholder="Enter the email" onChange={handleChange("email")} type="text" value={email} />
                     </div> 
+                    <br />
                     <div className="form-group">
                         <label className="text-dark">Password</label>
-                        <input className="form-control"  onChange={handleChange("password")} type="password" value={password} />
+                        <input className="form-control rounded-pill"  onChange={handleChange("password")} type="password" value={password} />
                     </div>
-                    <button onClick={onSubmit} className="btn btn-success btn-block">Sign in</button> 
+                    <br />
+                    <div className="text-center">
+                    <button onClick={onSubmit} className="btn btn-primary btn-block btn-center rounded-pill">Sign in</button> 
+                    </div>
                 </form>    
                  </div>     
 

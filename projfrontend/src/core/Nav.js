@@ -9,12 +9,12 @@ const currentTab=(history, path)=>{
         return {color: "#253898 #5737D6"};
     }
     else{
-        return {color: "#000000"};
+        return {color: "#ffffff"};
     }
 }
 const Nav = ({history}) => (
 <div>
-    <ul className="nav navbar-light ">
+    <ul className="nav navbar-dark bg-dark">
         <li className="nav-item">
             <Link style={currentTab(history,"/")} className="nav-link" to="/">
                 Home

@@ -23,7 +23,7 @@ exports.createCategory=(req, res)=>{
                 error: "NOT able to save category in DB"
             });
         }
-        res.json({category});
+        return res.json({category});
     });
 };
 
