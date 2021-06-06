@@ -2,35 +2,38 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav from "./Nav";
  import "./style.css";
- import Type from "./type";
 import Specialize from './Specialize';
 import Typist from 'react-typist';
 import "../../src/styles.css"
-const Base=({
-    title="Want a Doctor Appointment?",
+import './style.css'
+function Type({
+    title="Doctor Appointment in VITAP",
     title2="Choose the doctor",
     description="Book an Appointment Online",
     title3="Consult Doctor without any stress!!",
     className=" p-4",
     children
-})=>{
+}){
+
     return (
-     <div>
-         <Nav />
-        
-     {/* <Specialize /> */}
-    
-   
-      <div className="jumbotron text-white text-center">
-        <h2 className="display-4">{title}</h2>
-        <p className="lead">{description}</p>
-      </div>
-      <div className={className}>{children}</div>
-    
-    
- 
-        
-         <footer className="footer footer-container mt-auto py-3">
+
+        <div>
+                <Nav />
+
+        <section id="hero" className="d-flex flex-column justify-content-center align-items-center">
+        <div className="hero-container" data-aos="fade-in">
+          <h1>{title}</h1>
+        <Typist>
+        <span> {title2} </span>
+      <Typist.Backspace count={19} delay={200} />
+      <span> {description} </span>
+      <Typist.Backspace count={28} delay={200} />
+      <span> {title3} </span>
+          </Typist>
+        </div>
+      </section> 
+          <div className={className}>{children}</div>
+          <footer className="footer footer-container mt-auto py-3">
              <div className="container-fluid bg-success text-center">
                  <h4>If you got any questions, feel free to reach out!</h4>
                 <button className="btn btn-warning btn-lg">Contact Us</button>
@@ -87,8 +90,9 @@ const Base=({
                  </span>
              </div>
          </footer>
-     </div>
-    )
+          </div>
+        );
+        
 }
 
-export default Base;
+export default Type;

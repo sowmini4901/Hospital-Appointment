@@ -3,7 +3,7 @@ import Base from "../core/Base"
 import {Link} from "react-router-dom"
 import { signup } from "../auth/helper";
 import Nav from "../core/Nav";
-//import './style.css';
+// import './style.css';
 
 const Signup = () =>{
 
@@ -63,19 +63,19 @@ const errorMessage=()=>{
    }
     const signupForm = ()=>{
         return(
-            <div className="row">
+            <div className="row signup">
                  <div className="col-md-4 offset-sm-4 text-left">
                  <form>
                     <div className="form-group">
-                        <label className="">Name</label>
+                        <label className="text-dark">Name</label>
                         <input className="form-control" onChange={handleChange("name")} type="text" value={name} />
                     </div>  
                     <div className="form-group">
-                        <label className="">Email</label>
+                        <label className="text-dark">Email</label>
                         <input className="form-control" onChange={handleChange("email")} type="text" value={email}/>
                     </div> 
                     <div className="form-group">
-                        <label className="">Password</label>
+                        <label className="text-dark">Password</label>
                         <input className="form-control" onChange={handleChange("password")}type="password" value={password}/>
                     </div>
                    
@@ -93,7 +93,7 @@ const errorMessage=()=>{
         {successMessage()}
         {errorMessage()}
         
-        <p className="text-white text-center">{JSON.stringify(values)}</p>
+        <p className="text-dark text-center">{JSON.stringify(values)}</p>
         </Base>
       
     );

@@ -32,7 +32,7 @@ const Signin = () =>{
                 setValues({
                     ...values,didRedirect:true,email:"",password:"",error:"",success:true
                 });
-                <Redirect to="/" />
+               
                })
             }
         })
@@ -102,7 +102,7 @@ const Signin = () =>{
         {signinForm()}
         {loadingMessage()}
         {errorMessage()}
-        
+        {performRedirect()}
         <p className="text-dark text-center">{JSON.stringify(values)}</p>
         </Base>
     );

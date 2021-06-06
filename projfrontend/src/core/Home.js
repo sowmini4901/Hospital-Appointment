@@ -1,6 +1,7 @@
 import React from 'react'
 import "../styles.css";
 import Base from "./Base";
+import Type from "./type";
 //import logo from './logo1.png';
 import doctor from './doctor.png'
 import './style.css';
@@ -9,11 +10,11 @@ import Specialize from './Specialize';
 export default function Home(){
     console.log("API is ", API);
     return (
-        <Base>
+        <Type>
        {//<img src={doctor} alt="doctor" style={{opacity:0.5}}/>;
      }  
      
      
-        </Base>
+        </Type>
     )
 }

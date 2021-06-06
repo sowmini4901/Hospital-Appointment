@@ -19,7 +19,12 @@
     font-size: 26px;
     font-family: "Poppins", sans-serif;
   }
-  
+  #hero p span {
+    color: #fff;
+    padding-bottom: 4px;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #149ddd;
+  }
   
 @media (min-width: 1024px) {
     #hero {
@@ -44,6 +49,9 @@
   .navbar-inner {
     background:transparent;
 }
+
+
+
 .footer-container{
     background-color: #242424;
     padding: 4rem 0 2rem 0;

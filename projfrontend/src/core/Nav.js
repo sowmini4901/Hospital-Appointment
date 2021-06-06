@@ -6,7 +6,7 @@ import {signout, isAuthenticated} from "../auth/helper/index"
 
 const currentTab=(history, path)=>{
     if(history.location.pathname===path){
-        return {color: "#E03B8B"};
+        return {color: "#253898 #5737D6"};
     }
     else{
         return {color: "#000000"};
@@ -14,7 +14,7 @@ const currentTab=(history, path)=>{
 }
 const Nav = ({history}) => (
 <div>
-    <ul className="nav navbar-light">
+    <ul className="nav navbar-light ">
         <li className="nav-item">
             <Link style={currentTab(history,"/")} className="nav-link" to="/">
                 Home
@@ -25,16 +25,20 @@ const Nav = ({history}) => (
                 Doctors
             </Link>
         </li>
-        <li className="nav-item">
+        {isAuthenticated() && isAuthenticated().user.role===1 && (
+            <li className="nav-item">
             <Link style={currentTab(history,"/admin/dashboard")} className="nav-link" to="/admin/dashboard">
                 A.Dashboard
             </Link>
         </li>
-        <li className="nav-item">
+        )}
+        {isAuthenticated() && isAuthenticated().user.role===0 && (
+            <li className="nav-item">
             <Link style={currentTab(history,"/user/dashboard")} className="nav-link" to="/user/dashboard">
                 Dashboard
             </Link>
         </li>
+        )}
         {!isAuthenticated() && (
              <Fragment>
              <li className="nav-item">
@@ -43,7 +47,7 @@ const Nav = ({history}) => (
                  </Link>
              </li>
              <li className="nav-item">
-                 <Link style={currentTab(history,"/Signin")} className="nav-link" to="/signin">
+                 <Link style={currentTab(history,"/signin")} className="nav-link" to="/signin">
                      Signin
                  </Link>
              </li>
