@@ -8,50 +8,49 @@ import './style.css';
 import {API} from '../backend';
 import Specialize from './Specialize';
 import Card from './Card';
+import { getDoctors } from './helper/coreapicalls';
 import Category from './Category';
-import { getCategories } from '../admin/helper/adminapicall';
 
-export default function Home(){
-    
- const [categories, setCategories]= useState([])
+export default function Doctors(){
+
+ const [doctors, setDoctors]= useState([])
  const [error, setError] = useState(false)
 
- const loadAllCategories = ()=>{
-     getCategories().then(data=>{
+ const loadAllDoctors = ()=>{
+     getDoctors().then(data=>{
          if(data.error){
              setError(data.error)
          }
          else{
-             setCategories(data)
+             setDoctors(data)
          }
      })
  }
 
  useEffect(()=>{
-   loadAllCategories()
+   loadAllDoctors()
  }, [])
-
+    
     return (
-        <Type>
+        <Base>
        {//<img src={doctor} alt="doctor" style={{opacity:0.5}}/>;
      }  
-     <h1 className="mb-2">Categories</h1>
-     <div className="row">
-     <h1 className="text-white"></h1>
+     <h1 className="mb-2">List of all Doctors Available</h1>
+     <div className="row text-center">
+         <h1 className="text-white"></h1>
           <div className="row">
-              {categories.map((category, index)=>{
+              {doctors.map((doctor, index)=>{
                   return(
                       <div key={index} className="col-4 mb-4">
                            <h1 className="mb-2">{}</h1>
-                          <Category category={category}/>
+                          <Card doctor={doctor}/>
                           </div>
                   )
               })}
           </div>
-
      </div>
      
      
-        </Type>
+        </Base>
     )
 }

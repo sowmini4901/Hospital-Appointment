@@ -1,7 +1,7 @@
 var express = require("express");
 var router=express.Router();
 
-const {getDoctorById, createDoctor, getDoctor, photo, deleteDoctor, updateDoctor, getAllDoctors, getAllUniqueCategories}=require("../controllers/doctor");
+const {getDoctorById, createDoctor, getDoctor, photo, deleteDoctor, updateDoctor, getAllDoctors, getDoctorsByCategory,getAllUniqueCategories}=require("../controllers/doctor");
 const {isSignedIn, isAuthenticated, isAdmin}=require("../controllers/auth");
 const {getCategoryById}=require("../controllers/category");
 const {getUserById}=require("../controllers/user");
@@ -24,6 +24,7 @@ router.put("/doctor/:doctorId/:userId",isSignedIn,isAuthenticated,isAdmin,update
 
 //listing route
 router.get("/doctors", getAllDoctors);
+router.get("/doctor/:categoryId",getDoctorsByCategory);
 
 router.get("/doctors/categories", getAllUniqueCategories);
 module.exports=router;

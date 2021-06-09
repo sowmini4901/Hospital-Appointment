@@ -14,6 +14,10 @@ const doctorSchema = new mongoose.Schema({
         trim: true,
         maxlength:2500 
     },
+    specialization:{
+        type:String,
+        required: true
+    },
     fees:{
         type: Number,
         required:true,

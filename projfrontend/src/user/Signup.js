@@ -3,7 +3,7 @@ import Base from "../core/Base"
 import {Link} from "react-router-dom"
 import { signup } from "../auth/helper";
 import Nav from "../core/Nav";
-// import './style.css';
+import './style.css';
 
 const Signup = () =>{
 
@@ -63,8 +63,9 @@ const errorMessage=()=>{
    }
     const signupForm = ()=>{
         return(
-            <div className="row signup">
-                 <div className="col-md-3 offset-sm-4 text-left">
+            <div className="container mx-auto rounded style1 flex-row justify-content-center flex-column justify-content-center">
+            <div className="card shadow p-3 mb-5 bg-body ">
+                 <div className="col-md-6 offset-sm-3">
                  <form>
                     <div className="form-group">
                         <label className="text-dark">Name</label>
@@ -86,6 +87,7 @@ const errorMessage=()=>{
                  </div>     
 
 
+            </div>
             </div>
         )
     }

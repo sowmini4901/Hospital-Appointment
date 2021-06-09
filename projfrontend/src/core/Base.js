@@ -6,6 +6,10 @@ import Nav from "./Nav";
 import Specialize from './Specialize';
 import Typist from 'react-typist';
 import "../../src/styles.css"
+import { faHome, faUserMd, faUserPlus, faSignInAlt, faSignOutAlt, faCalendarCheck, faUser, faUserLock } from "@fortawesome/free-solid-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Base=({
     title="Want a Doctor Appointment?",
     title2="Choose the doctor",
@@ -30,48 +34,37 @@ const Base=({
     
  
         
-         <footer className="footer footer-container mt-auto py-3">
-             <div className="container-fluid bg-success text-center">
-                 <h4>If you got any questions, feel free to reach out!</h4>
-                <button className="btn btn-warning btn-lg">Contact Us</button>
-             </div>
+         <footer className="footer bg-light shadow p-3 mb-5 bg-body rounded footer-container mt-auto py-3">
+            
              <div className="footer-links">
-                 <div className="footer-link-wrapper">
-                     <div className="footer-link-items">
+                 
+                     <div className="footer-link-items col-4">
                          <h2>About Us</h2>
-                         <Link to="/">How it works</Link>
+                         <Link to="/">  <FontAwesomeIcon icon={faUserMd} size="lg"/> How it works</Link>
+                         <br />
                          <Link>Our Prodcuts</Link>
                           <Link>Testimonials</Link>
                           <Link>Terms of Service</Link>
                           
                      </div>
-                     <div className="footer-link-items">
+                     <div className="footer-link-items col-4">
                          <h2>Contact Us</h2>
                          <Link to="/">Our Prodcuts</Link>
                           <Link>Testimonials</Link>
                           <Link>Terms of Service</Link>
                           
                      </div>
-                    
-                 </div>
-                 <div className="footer-link-wrapper">
-                     <div className="footer-link-items">
+                
+                     <div className="footer-link-items col-4">
                          <h2>About Us</h2>
                          <Link>Our Prodcuts</Link>
                           <Link>Testimonials</Link>
                           <Link>Terms of Service</Link>
                           
                      </div>
-                     <div className="footer-link-items">
-                         <h2>Contact Us</h2>
-                         <Link to="/">Our Prodcuts</Link>
-                          <Link>Testimonials</Link>
-                          <Link>Terms of Service</Link>
-                          
-                     </div>
                     
                  </div>
-             </div>
+             
              <section className="social-media">
                  <div className="social-media-wrap">
                      <div className="footer-logo">
@@ -86,7 +79,9 @@ const Base=({
                  © Copyright 2021 Online Hospital Appointment
                  </span>
              </div>
+            
          </footer>
+      
      </div>
     )
 }

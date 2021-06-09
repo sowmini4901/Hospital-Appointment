@@ -2,20 +2,20 @@ import React, {useState, useEffect} from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import { isAuthenticated } from '../auth/helper/index.js';
 import Base from '../core/Base';
-import { createDoctor, getCategories } from './helper/adminapicall';
+import { getCategories, getDoctor, updateDoctor } from './helper/adminapicall';
 
-const AddDoctor =()=>{
+const UpdateDoctor =({match})=>{
    
   const {user, token}=isAuthenticated();
     const [values, setValues]=useState({
         name:"",
         description:"",
         fees:"",
-        specialization:"",
         available:"",
         photo:"",
         categories: [],
         category:"",
+        specialization:"",
         loading: false,
         error:"",
         createdDoctor:"",
@@ -23,22 +23,46 @@ const AddDoctor =()=>{
         formData:"",
     });
     
-    const {name, description, fees, available, categories, category, specialization, loading, error, createdDoctor, getaRedirect, formData} =values
+    const {name, description, fees, available, categories, category, loading,specialization, error, createdDoctor, getaRedirect, formData} =values
     
-    const preload=()=>{
-      getCategories().then(data=>{
+    const preload=doctorId=>{
+      getDoctor(doctorId).then(data=>{
         if(data && data.error){
           setValues({...values, error: data.error})
         }
         else{
-          setValues({...values, categories: data, formData: new FormData()})
-          console.log("CATE:",categories);
+            preloadCategories();
+          setValues({
+              ...values,
+              name: data.name,
+              description: data.description,
+              fees: data.fees,
+              specialization:data.specialization,
+              category:data.category._id,
+              available: data.available,
+              formData: new FormData()
+          })
+         
         }
       })
     }
 
+    const preloadCategories=()=>{
+   getCategories().then(data=>{
+       if(data.error){
+        setValues({...values, error: data.error})
+       } else{
+           setValues({
+               categories: data, formData: new FormData()
+           })
+       }
+   })
+   .catch()
+    }
+
+
     useEffect(()=>{
-preload()
+preload(match.params.doctorId)
     },[])
 
 
@@ -50,14 +74,15 @@ preload()
 
     const onSubmit=(event)=>{
     event.preventDefault();
-   setValues({...values, error:"", loading:true})
-   createDoctor(user._id, token, formData).then(data=>{
+   setValues({...values, error:"", loading:true});
+
+   updateDoctor(match.params.doctorId,user._id, token, formData).then(data=>{
      if(data.error){
        setValues({...values, error: data.error})
      }
      else{
        setValues({
-         ...values, name:"", description:"", fees:"", photo:"", available:"", loading:false, createdDoctor:data.name, getaRedirect:true
+         ...values, name:"", description:"", fees:"", photo:"", available:"", loading:false, createdDoctor:data.name,getaRedirect:true
        })
      }
    })
@@ -66,13 +91,13 @@ preload()
 
     const successMessage=()=>(
     <div className="alert alert-success mt-3" style={{display: createdDoctor ? "":"none"}}>
-  <h4>{createdDoctor} created successfully</h4>
+  <h4>{createdDoctor} updated successfully</h4>
     </div>
     )
   
     const warningMessage=()=>(
 <div className="alert alert-warning mt-3" style={{display: error ? "":"none"}}>
-  <h4>Failed to create {createdDoctor} </h4>
+  <h4>Failed to update {createdDoctor} </h4>
     </div>
     )
 
@@ -173,7 +198,7 @@ preload()
           </div>
           
           <button type="submit" onClick={onSubmit} className="btn btn-info rounded-pill mb-3 mt-3">
-            Add Doctor
+            Update Doctor
           </button>
          
         </form>
@@ -195,4 +220,4 @@ preload()
     )
 };
 
-export default AddDoctor;
+export default UpdateDoctor;

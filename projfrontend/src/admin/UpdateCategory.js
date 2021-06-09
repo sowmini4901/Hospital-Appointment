@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Base from '../core/Base';
 import {isAuthenticated} from "../auth/helper";
 import {Link} from "react-router-dom";
-import { createCategory } from './helper/adminapicall';
+import { createCategory, getCategory, getCategories } from './helper/adminapicall';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudUploadAlt, faPlus, faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
-const AddCategory =()=>{
+import { faCloudUploadAlt, faPlus, faArrowAltCircleLeft, faEdit } from "@fortawesome/free-solid-svg-icons";
+const UpdateCategory =({match})=>{
 
   const [name, setName] = useState("")
   const [error, setError]=useState(false)
@@ -31,7 +31,7 @@ setError("");
 setSucces(false)
 
 //backend req
-createCategory(user._id, token, {name})
+getCategory(user._id, token, {name})
 
 .then(data=>{
     if(data.error){
@@ -46,6 +46,9 @@ createCategory(user._id, token, {name})
 })
 console.log(user._id)
   }
+
+  
+
 
   const successMessage=()=>{
  if(success){
@@ -66,7 +69,7 @@ console.log(user._id)
            <div className="form-group">
                <p className="lead">Enter the category</p>
                <input type="text" className="form-control my-3" onChange={handleChange} value={name} autoFocus required placeholder="For Ex. Psychology" />
-               <button onClick={onSubmit} className="btn btn-outline-info bg-success text-white mb-3 rounded-pill"> <FontAwesomeIcon icon={faPlus} size="lg"/> Create Category</button>
+               <button onClick={onSubmit} className="btn btn-outline-info bg-success text-white mb-3 rounded-pill"> <FontAwesomeIcon icon={faEdit} size="lg"/> Update Category</button>
            </div>
        </form>
    )
@@ -85,4 +88,4 @@ console.log(user._id)
     )
 };
 
-export default AddCategory;
+export default UpdateCategory;

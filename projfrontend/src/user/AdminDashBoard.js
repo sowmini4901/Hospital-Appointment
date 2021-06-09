@@ -13,21 +13,21 @@ const AdminDashBoard =()=>{
         <h4 className="card-header ">Admin Navigation</h4>
         <ul className="list-group">
             <li className="list-group-item">
-                <Link to="/admin/create/category" className="nav-link text-info">Create Categories</Link>
+                <Link to="/admin/create/category" className="nav-link" style={{color:"#253898 #5737D6"}}>Create Categories</Link>
             </li>
             <li className="list-group-item">
-                <Link to="/admin/categories" className="nav-link text-info">Manage Categories</Link>
+                <Link to="/admin/categories" className="nav-link" style={{color:"#253898 #5737D6"}}>Manage Categories</Link>
             </li>
 
             <li className="list-group-item">
-                <Link to="/admin/create/doctor" className="nav-link text-info">Add Doctor</Link>
+                <Link to="/admin/create/doctor" className="nav-link" style={{color:"#253898 #5737D6"}}>Add Doctor</Link>
             </li>
             <li className="list-group-item">
-                <Link to="/admin/doctors" className="nav-link text-info">Manage Doctors</Link>
+                <Link to="/admin/doctors" className="nav-link" style={{color:"#253898 #5737D6"}}>Manage Doctors</Link>
             </li>
         
             <li className="list-group-item">
-                <Link to="/admin/create/appointments" className="nav-link text-info">Manage Appointments</Link>
+                <Link to="/admin/create/appointments" className="nav-link" style={{color:"#253898 #5737D6"}}>Manage Appointments</Link>
             </li>
         </ul>
     </div>

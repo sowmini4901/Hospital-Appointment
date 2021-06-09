@@ -21,7 +21,7 @@ function Type({
                 <Nav />
 
         <section id="hero" className="d-flex flex-column justify-content-center align-items-center">
-        <div className="hero-container" data-aos="fade-in">
+        <div className="hero-container" data-aos="fade-up" data-aos-delay="100">
           <h1>{title}</h1>
         <Typist>
         <span> {title2} </span>
@@ -33,11 +33,10 @@ function Type({
         </div>
       </section> 
           <div className={className}>{children}</div>
-          <footer className="footer footer-container mt-auto py-3">
-             <div className="container-fluid bg-success text-center">
-                 <h4>If you got any questions, feel free to reach out!</h4>
-                <button className="btn btn-warning btn-lg">Contact Us</button>
-             </div>
+
+
+          <footer className="footer bg-light shadow-lg p-3 mb-5 bg-body rounded footer-container mt-auto py-3">
+           
              <div className="footer-links">
                  <div className="footer-link-wrapper">
                      <div className="footer-link-items">

@@ -78,8 +78,9 @@ const Signin = () =>{
 
     const signinForm = ()=>{
         return(
-            <div className="card shadow p-3 mb-5 bg-body rounded">
-                 <div className="col-md-3 offset-sm-4 text-left col-3">
+            <div className="container mx-auto rounded style1 flex-row justify-content-center">
+            <div className="card shadow p-3 mb-5 bg-body  ">
+                 <div className="col-md-6 offset-sm-3">
                  <form>  
                     <div className="form-group">
                         <label className="text-dark">Email</label>
@@ -98,6 +99,7 @@ const Signin = () =>{
                  </div>     
 
 
+            </div>
             </div>
         )
     }

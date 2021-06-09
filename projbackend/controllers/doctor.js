@@ -17,6 +17,9 @@ exports.getDoctorById=(req, res, next, id)=>{
     });
 }
 
+exports.getDoctorsByCategory=(req, res)=>{
+ 
+}
 
 exports.createDoctor=(req, res)=>{
      let form = new formidable.IncomingForm();

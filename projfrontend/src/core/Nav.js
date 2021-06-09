@@ -2,6 +2,9 @@ import React, { Fragment } from 'react'
 import {Link, withRouter} from "react-router-dom"
 import "./style.css"
 import {signout, isAuthenticated} from "../auth/helper/index"
+import { faHome, faUserMd, faUserPlus, faSignInAlt, faSignOutAlt, faCalendarCheck, faUser, faUserLock } from "@fortawesome/free-solid-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const currentTab=(history, path)=>{
@@ -9,33 +12,34 @@ const currentTab=(history, path)=>{
         return {color: "#253898 #5737D6"};
     }
     else{
-        return {color: "#ffffff"};
+        return {color: "#000000"};
     }
 }
 const Nav = ({history}) => (
 <div>
-    <ul className="nav navbar-dark bg-dark">
+    <ul className="nav navbar-light shadow p-3 mb-3 bg-body rounded">
         <li className="nav-item">
-            <Link style={currentTab(history,"/")} className="nav-link" to="/">
-                Home
+        <Link style={currentTab(history,"/")} className="nav-link" to="/">
+        <FontAwesomeIcon icon={faHome} size="lg"/>  Home
             </Link>
+            
         </li>
         <li className="nav-item">
-            <Link style={currentTab(history,"/appointment")} className="nav-link" to="/appointment">
-                Doctors
+            <Link style={currentTab(history,"/doctors")} className="nav-link" to="/doctors">
+            <FontAwesomeIcon icon={faUserMd} size="lg"/>  Doctors
             </Link>
         </li>
         {isAuthenticated() && isAuthenticated().user.role===1 && (
             <li className="nav-item">
             <Link style={currentTab(history,"/admin/dashboard")} className="nav-link" to="/admin/dashboard">
-                A.Dashboard
+            <FontAwesomeIcon icon={faUserLock} size="lg"/> A.Dashboard
             </Link>
         </li>
         )}
         {isAuthenticated() && isAuthenticated().user.role===0 && (
             <li className="nav-item">
             <Link style={currentTab(history,"/user/dashboard")} className="nav-link" to="/user/dashboard">
-                Dashboard
+            <FontAwesomeIcon icon={faUser} size="lg"/> Dashboard
             </Link>
         </li>
         )}
@@ -43,30 +47,30 @@ const Nav = ({history}) => (
              <Fragment>
              <li className="nav-item">
                  <Link style={currentTab(history,"/signup")} className="nav-link" to="/signup">
-                     Signup
+                 <FontAwesomeIcon icon={faUserPlus} size="lg"/>   Signup
                  </Link>
              </li>
              <li className="nav-item">
                  <Link style={currentTab(history,"/signin")} className="nav-link" to="/signin">
-                     Signin
+                 <FontAwesomeIcon icon={faSignInAlt} size="lg"/> Signin
                  </Link>
              </li>
              </Fragment>
         )}
        
         <li className="nav-item">
-            <Link style={currentTab(history,"/Booked")} className="nav-link" to="/Booked">
-                Appointment
+            <Link style={currentTab(history,"/appointment")} className="nav-link" to="/appointment">
+            <FontAwesomeIcon icon={faCalendarCheck} size="lg"/> Appointment
             </Link>
         </li>
           {isAuthenticated() && (
       <li className="nav-item">
-        <span className="nav-link text-warning" onClick={()=>{
+        <span className="nav-link text-danger" style={{cursor:"pointer"}}onClick={()=>{
            signout(()=>{
             history.push("/")
            });
        }}>
-        Signout
+        <FontAwesomeIcon icon={faSignOutAlt} size="lg"/> Signout
     </span>
 </li>
           )}
