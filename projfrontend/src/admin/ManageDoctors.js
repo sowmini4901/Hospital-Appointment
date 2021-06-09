@@ -3,7 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 import { isAuthenticated } from '../auth/helper';
 import Base from '../core/Base';
 import { deleteDoctor, getDoctor, getDoctors } from './helper/adminapicall';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleLeft, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ManageDoctors =()=>{
 
@@ -39,7 +40,7 @@ const ManageDoctors =()=>{
         <Base title="Welcome admin" description="Manage doctors here">
         <h2 className="mb-4">All Doctors List:</h2>
         <Link className="btn btn-info rounded-pill btn-dark" to={`/admin/dashboard`}>
-          <span className="">Admin Home</span>
+          <span className=""> <FontAwesomeIcon icon={faArrowAltCircleLeft} size="sm"/> Admin Home</span>
         </Link>
         <div className="row mb-5">
           <div className="col-12">

@@ -40,7 +40,7 @@ const ManageCategories =()=>{
         <Base title="Welcome admin" description="Manage Categories here">
         <h2 className="mb-4">All Departments List:</h2>
         <Link className="btn btn-info rounded-pill btn-dark mb-3" to={`/admin/dashboard`}>
-          <span className=""><FontAwesomeIcon icon={faArrowAltCircleLeft} size="lg"/> Admin Home</span>
+          <span className=""><FontAwesomeIcon icon={faArrowAltCircleLeft} size="sm"/> Admin Home</span>
         </Link>
         <div className="row mb-5">
           <div className="col-12 shadow-sm p-3 mb-3 rounded-3 bg-secondary">

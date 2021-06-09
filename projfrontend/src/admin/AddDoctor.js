@@ -3,6 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 import { isAuthenticated } from '../auth/helper/index.js';
 import Base from '../core/Base';
 import { createDoctor, getCategories } from './helper/adminapicall';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleLeft, faEdit, faTrash, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 const AddDoctor =()=>{
    
@@ -161,19 +163,20 @@ preload()
           
           <span className="text-dark">Post photo</span>
           <div className="form-group text-left">
-            <label className="btn btn-block btn-success rounded-pill mb-3">
+            <label className="btn btn-block btn-secondary text-dark rounded mb-3">
               <input
                 onChange={handleChange("photo")}
                 type="file"
                 name="photo"
                 accept="image"
                 placeholder="choose a file"
+                style={{cursor:"pointer"}}
               />
             </label>
           </div>
           
-          <button type="submit" onClick={onSubmit} className="btn btn-info rounded-pill mb-3 mt-3">
-            Add Doctor
+          <button type="submit" onClick={onSubmit} className="btn btn-primary rounded mb-3 mt-3">
+          <FontAwesomeIcon icon={faUserPlus} size="sm"/> Add Doctor
           </button>
          
         </form>
@@ -181,7 +184,7 @@ preload()
     return(
         <Base title="Add a Doctor here" description="Welcome to doctors section" className="container shadow p-3 mb-5 bg-body rounded p-4">
              
-              <Link to="/admin/dashboard" className="btn btn-md btn-dark rounded-pill mb-3">Admin Home</Link>
+              <Link to="/admin/dashboard" className="btn btn-md btn-dark rounded-pill mb-3"> <FontAwesomeIcon icon={faArrowAltCircleLeft} size="sm"/> Admin Home</Link>
               <div className="row text-white rounded">
                   <div className="col-md-8 offset-md-2">
                      {createDoctorForm()}

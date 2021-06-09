@@ -23,12 +23,12 @@ exports.getUser = (req, res)=>{
      return res.json(req.profile);
 };
 
-// exports.getAllUsers = (req, res)=>{
-//   user.find().exec((err, user)=>{
-//   req.profiles=user
-//   return res.json(req.profiles);
-//   })
-// };
+exports.getAllUsers = (req, res)=>{
+  User.find().exec((err, user)=>{
+  req.profiles=user
+  return res.json(req.profiles);
+  })
+};
 
 //updating user data
 exports.updateUser =(req, res)=>{

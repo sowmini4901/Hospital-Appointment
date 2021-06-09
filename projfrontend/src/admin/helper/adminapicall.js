@@ -1,5 +1,18 @@
 import { API } from "../../backend";
 
+
+// users
+
+export const getAllUsers=()=>{
+    return fetch(`${API}/users`, {
+        method:"GET"
+    }
+    )
+    .then(response=>{
+        return response.json();
+    })
+    .catch(err=>console.log(err));
+}
 //category
 export const createCategory =(userId, token, category)=>{
     return fetch(`${API}/category/create/${userId}`,{
