@@ -117,6 +117,7 @@ export const getDoctor=doctorId=>{
     .catch(err=>console.log(err))
 }
 
+
 //get all doctors
 export const getDoctors=()=>{
     return fetch(`${API}/doctors`, {

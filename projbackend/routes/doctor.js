@@ -1,13 +1,13 @@
 var express = require("express");
 var router=express.Router();
 
-const {getDoctorById, createDoctor, getDoctor, photo, deleteDoctor, updateDoctor, getAllDoctors, getDoctorsByCategory,getAllUniqueCategories}=require("../controllers/doctor");
+const {getDoctorById, createDoctor, getDoctor, photo, deleteDoctor, updateDoctor, getAllDoctors, getCategoryById, getDoctorsByCategory,getAllUniqueCategories}=require("../controllers/doctor");
 const {isSignedIn, isAuthenticated, isAdmin}=require("../controllers/auth");
-const {getCategoryById}=require("../controllers/category");
+const {}=require("../controllers/category");
 const {getUserById}=require("../controllers/user");
 //params
 router.param("userId",getUserById);
-//router.param("categoryId",getCategoryById);
+ router.param("categoryId", getCategoryById);
 router.param("doctorId",getDoctorById);
 
 //create routes
@@ -24,7 +24,7 @@ router.put("/doctor/:doctorId/:userId",isSignedIn,isAuthenticated,isAdmin,update
 
 //listing route
 router.get("/doctors", getAllDoctors);
-router.get("/doctor/:categoryId",getDoctorsByCategory);
+router.get("/:categoryId", getDoctorsByCategory);
 
 router.get("/doctors/categories", getAllUniqueCategories);
 module.exports=router;

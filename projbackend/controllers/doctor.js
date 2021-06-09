@@ -2,6 +2,8 @@ const Doctor = require("../models/doctor");
 const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
+const category = require("../models/category");
+
 
 
 exports.getDoctorById=(req, res, next, id)=>{
@@ -17,9 +19,21 @@ exports.getDoctorById=(req, res, next, id)=>{
     });
 }
 
-exports.getDoctorsByCategory=(req, res)=>{
- 
-}
+exports.getCategoryById=(req, res, next, id)=>{
+
+    category.findById(id).exec((err, category)=>{
+        if(err){
+            return res.status(400).json({
+                error: "Category not found in DB"
+            });
+        }
+        req.category = category;
+        console.log(req.category);
+        next();
+    });
+
+};
+
 
 exports.createDoctor=(req, res)=>{
      let form = new formidable.IncomingForm();
@@ -161,6 +175,21 @@ exports.getAllDoctors=(req, res)=>{
         res.json(doctors);
     })
 };
+
+exports.getDoctorsByCategory=(req, res)=>{
+//   const category = req.category;
+//   console.log(category);
+let limit= req.query.limit ? parseInt(req.query.limit): 8
+let sortBy = req.query.sortBy ? req.query.sortBy: "_id";
+  Doctor.find({category: req.category}).select("-photo").populate("category").sort([[sortBy, "asc"]]).limit(limit).exec((err, doctor)=>{
+      if(err){
+          return res.status(400).json({
+              error:"unable to find doctors"
+          })
+      }
+     res.json(doctor);
+  })
+   };
 
 exports.getAllUniqueCategories = (req, res)=>{
     Doctor.distinct("category",{}, (err, category)=>{

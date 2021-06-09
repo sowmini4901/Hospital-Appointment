@@ -15,6 +15,7 @@ import UpdateDoctor from './admin/UpdateDoctor';
 import UpdateCategory from './admin/UpdateCategory';
 import Doctors from './core/Doctors';
 import Cart from './core/Cart';
+import CateDoc from './core/CateDoc';
 
 
 const Routes=()=>{
@@ -34,6 +35,7 @@ const Routes=()=>{
             <AdminRoute path="/admin/category/update/:categoryId" exact component={UpdateCategory}/> 
            <Route path="/doctors" exact component={Doctors} />
            <Route path="/appointment" exact component={Cart} />
+           <Route path="/category/:categoryId" exact component={CateDoc} />
        </Switch>
        </BrowserRouter>
     );

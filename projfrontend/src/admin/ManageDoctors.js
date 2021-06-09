@@ -57,7 +57,7 @@ const ManageDoctors =()=>{
                       className="btn btn-success rounded"
                       to={`/admin/doctor/update/${doctor._id}`}
                     >
-                      <span className="">Update</span>
+                      <span className=""> <FontAwesomeIcon icon={faEdit} size="sm"/> Update</span>
                     </Link>
                   </div>
                   <div className="col-4">
@@ -67,7 +67,7 @@ const ManageDoctors =()=>{
                       }}
                       className="btn btn-danger rounded"
                     >
-                      Delete
+                    <FontAwesomeIcon icon={faTrash} size="sm"/>  Delete
                     </button>
                   </div>
                 </div>

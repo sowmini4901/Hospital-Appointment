@@ -9,7 +9,7 @@ removeFromCart=false
 }) => {
 
     const [redirect, setRedirect]=useState(false);
-    const [count, setCount] = useState(doctor.count)
+    // const [count, setCount] = useState(doctor.count)
 
 
     const cartTitle = doctor ? doctor.name: "doctor"

@@ -58,7 +58,7 @@ const ManageCategories =()=>{
                       className="btn btn-success rounded"
                       to={`/admin/category/update/${category._id}`}
                     >
-                      <span className=""><FontAwesomeIcon icon={faEdit} size="lg"/> Update</span>
+                      <span className=""><FontAwesomeIcon icon={faEdit} size="sm"/> Update</span>
                     </Link>
                   </div>
                   <div className="col-4">
@@ -68,7 +68,7 @@ const ManageCategories =()=>{
                       }}
                       className="btn btn-danger rounded"
                     >
-                     <FontAwesomeIcon icon={faTrash} size="lg"/>  Delete
+                     <FontAwesomeIcon icon={faTrash} size="sm"/>  Delete
                     </button>
                   </div>
                 </div>
