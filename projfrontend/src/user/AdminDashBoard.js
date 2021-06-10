@@ -46,7 +46,7 @@ const AdminDashBoard =()=>{
    
     const adminLeftSide=()=>{
     return(
-    <div className="card shadow p-3 mb-5 bg-body rounded">
+    <div className="card shadow p-6 mb-5 mt-5 bg-body rounded">
         <h4 className="card-header ">Admin Navigation</h4>
         <ul className="list-group">
             <li className="list-group-item">
@@ -75,7 +75,7 @@ const AdminDashBoard =()=>{
    const adminRightSide=()=>{
    return (
        <div>
-       <div className="card mb-4 shadow p-3 mb-5 bg-body rounded">
+       <div className="card mb-4 shadow p-6 mb-5 mt-5 bg-body rounded">
            <h4 className="card-header">Admin Information</h4>
            <ul className="list-group">
            <li className="list-group-item">

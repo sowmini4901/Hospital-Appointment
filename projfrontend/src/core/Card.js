@@ -1,11 +1,13 @@
 import react, {useState, useEffect} from 'react'
 import { Redirect } from 'react-router';
-import { addAppointment } from './helper/AppointmentHelper';
+import { addAppointment, cancelAppointment } from './helper/AppointmentHelper';
 import ImageHelper from './helper/ImageHelper';
 
 const Card = ({doctor,
 addtoCart = true,
-removeFromCart=false
+removeFromCart=false,
+setReload=f=>f,
+reload=undefined
 }) => {
 
     const [redirect, setRedirect]=useState(false);
@@ -46,7 +48,10 @@ return (
        return(
            removeFromCart && (
             <button
-            onClick={() => {}}
+            onClick={() => {
+              cancelAppointment(doctor._id);
+              setReload(!reload);
+            }}
             className="btn btn-block btn-danger rounded mt-2 mb-2"
           >
             Cancel Appointment

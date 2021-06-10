@@ -17,7 +17,7 @@ const currentTab=(history, path)=>{
 }
 const Nav = ({history}) => (
 <div>
-    <ul className="nav shadow p-3 mb-3 bg-body rounded" style={{backgroundColor:"#b2ec5d"}}>
+    <ul className="nav p-3 mb-3" style={{backgroundColor:"#b2ec5d"}}>
         <li className="nav-item">
         <Link style={currentTab(history,"/")} className="nav-link" to="/">
         <FontAwesomeIcon icon={faHome} size="sm"/>  Home

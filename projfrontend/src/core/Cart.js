@@ -13,16 +13,18 @@ import Base from './Base';
 export default function Cart(){
 
    const [doctor, setDoctors] = useState([])
+   const [reload, setReload] = useState(false)
+
   useEffect(()=>{
     setDoctors(loadAppointment())
-  })
+  }, [reload]);
 
    const loadAllDoctors=()=>{
        return(
            <div>
               
               { (doctor.map((doctor, index)=>(
-                   <Card key={index} doctor={doctor} removeFromCart={true} addtoCart={false}
+                   <Card key={index} doctor={doctor} removeFromCart={true} addtoCart={false} setReload={setReload} reload={reload}
                    />
                )))
    }
