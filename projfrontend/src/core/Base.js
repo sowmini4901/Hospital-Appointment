@@ -2,14 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav from "./Nav";
  import "./style.css";
- import Type from "./type";
-import Specialize from './Specialize';
-import Typist from 'react-typist';
 import "../../src/styles.css"
 import { faHome, faUserMd, faUserPlus, faSignInAlt, faSignOutAlt, faCalendarCheck, faUser, faUserLock } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import {
+    Box,
+    Container,
+    Row,
+    Column,
+    FooterLink,
+    Heading,
+  } from "./Styles";
 const Base=({
     title="Want a Doctor Appointment?",
     title2="Choose the doctor",
@@ -26,61 +30,75 @@ const Base=({
     
    
       <div className="jumbotron text-dark text-center">
-        <h2 className="display-4">{title}</h2>
-        <p className="lead">{description}</p>
+        <h2 className="display-4 d-none">{title}</h2>
+        <p className="lead d-none">{description}</p>
       </div>
       <div className={className}>{children}</div>
     
-    
+      <Box>
+      {/* <h1 style={{ color: "lightblue", 
+                   textAlign: "center", 
+                   marginTop: "-50px" }}>
+       Online Hospital Appointment
+      </h1> */}
+      <Container>
+        <Row>
+          <Column>
+            <Heading>About Us</Heading>
+            <FooterLink href="#">Aim</FooterLink>
+            <FooterLink href="#">Vision</FooterLink>
+            <FooterLink href="#">Testimonials</FooterLink>
+          </Column>
+          <Column>
+            <Heading>Services</Heading>
+            <FooterLink href="#">Writing</FooterLink>
+            <FooterLink href="#">Internships</FooterLink>
+            <FooterLink href="#">Coding</FooterLink>
+            <FooterLink href="#">Teaching</FooterLink>
+          </Column>
+          <Column>
+            <Heading>Contact Us</Heading>
+            <FooterLink href="#">Uttar Pradesh</FooterLink>
+            <FooterLink href="#">Ahemdabad</FooterLink>
+            <FooterLink href="#">Indore</FooterLink>
+            <FooterLink href="#">Mumbai</FooterLink>
+          </Column>
+          <Column>
+            <Heading>Social Media</Heading>
+            <FooterLink href="#">
+              <i className="fab fa-facebook-f">
+                <span style={{ marginLeft: "10px" }}>
+                  Facebook
+                </span>
+              </i>
+            </FooterLink>
+            <FooterLink href="#">
+              <i className="fab fa-instagram">
+                <span style={{ marginLeft: "10px" }}>
+                  Instagram
+                </span>
+              </i>
+            </FooterLink>
+            <FooterLink href="#">
+              <i className="fab fa-twitter">
+                <span style={{ marginLeft: "10px" }}>
+                  Twitter
+                </span>
+              </i>
+            </FooterLink>
+            <FooterLink href="#">
+              <i className="fab fa-youtube">
+                <span style={{ marginLeft: "10px" }}>
+                  Youtube
+                </span>
+              </i>
+            </FooterLink>
+          </Column>
+        </Row>
+      </Container>
+    </Box>
  
         
-         <footer className="footer bg-light shadow p-3 mb-5 bg-body rounded footer-container mt-auto py-3">
-            
-             <div className="footer-links">
-                 
-                     <div className="footer-link-items col-4">
-                         <h2>About Us</h2>
-                         <Link to="/">  <FontAwesomeIcon icon={faUserMd} size="lg"/> How it works</Link>
-                         <br />
-                         <Link>Our Prodcuts</Link>
-                          <Link>Testimonials</Link>
-                          <Link>Terms of Service</Link>
-                          
-                     </div>
-                     <div className="footer-link-items col-4">
-                         <h2>Contact Us</h2>
-                         <Link to="/">Our Prodcuts</Link>
-                          <Link>Testimonials</Link>
-                          <Link>Terms of Service</Link>
-                          
-                     </div>
-                
-                     <div className="footer-link-items col-4">
-                         <h2>About Us</h2>
-                         <Link>Our Prodcuts</Link>
-                          <Link>Testimonials</Link>
-                          <Link>Terms of Service</Link>
-                          
-                     </div>
-                    
-                 </div>
-             
-             <section className="social-media">
-                 <div className="social-media-wrap">
-                     <div className="footer-logo">
-                        <Link className="social-logo">
-                            Online Store <i className="fab fa-typo3" />
-                            </Link> 
-                     </div>
-                 </div>
-             </section>
-             <div className="container text-center">
-                 <span>
-                 © Copyright 2021 Online Hospital Appointment
-                 </span>
-             </div>
-            
-         </footer>
       
      </div>
     )

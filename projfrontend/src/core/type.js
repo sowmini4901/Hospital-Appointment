@@ -6,6 +6,14 @@ import Specialize from './Specialize';
 import Typist from 'react-typist';
 import "../../src/styles.css"
 import './style.css'
+import {
+    Box,
+    Container,
+    Row,
+    Column,
+    FooterLink,
+    Heading,
+  } from "./Styles";
 function Type({
     title="Doctor Appointment in VITAP",
     title2="Choose the doctor",
@@ -35,60 +43,69 @@ function Type({
           <div className={className}>{children}</div>
 
 
-          <footer className="footer bg-light shadow-lg p-3 mb-5 bg-body rounded footer-container mt-auto py-3">
-           
-             <div className="footer-links">
-                 <div className="footer-link-wrapper">
-                     <div className="footer-link-items">
-                         <h2>About Us</h2>
-                         <Link to="/">How it works</Link>
-                         <Link>Our Prodcuts</Link>
-                          <Link>Testimonials</Link>
-                          <Link>Terms of Service</Link>
-                          
-                     </div>
-                     <div className="footer-link-items">
-                         <h2>Contact Us</h2>
-                         <Link to="/">Our Prodcuts</Link>
-                          <Link>Testimonials</Link>
-                          <Link>Terms of Service</Link>
-                          
-                     </div>
-                    
-                 </div>
-                 <div className="footer-link-wrapper">
-                     <div className="footer-link-items">
-                         <h2>About Us</h2>
-                         <Link>Our Prodcuts</Link>
-                          <Link>Testimonials</Link>
-                          <Link>Terms of Service</Link>
-                          
-                     </div>
-                     <div className="footer-link-items">
-                         <h2>Contact Us</h2>
-                         <Link to="/">Our Prodcuts</Link>
-                          <Link>Testimonials</Link>
-                          <Link>Terms of Service</Link>
-                          
-                     </div>
-                    
-                 </div>
-             </div>
-             <section className="social-media">
-                 <div className="social-media-wrap">
-                     <div className="footer-logo">
-                        <Link className="social-logo">
-                            Online Store <i className="fab fa-typo3" />
-                            </Link> 
-                     </div>
-                 </div>
-             </section>
-             <div className="container text-center">
-                 <span>
-                 © Copyright 2021 Online Hospital Appointment
-                 </span>
-             </div>
-         </footer>
+          <Box >
+      {/* <h1 style={{ color: "lightblue", 
+                   textAlign: "center", 
+                   marginTop: "-50px" }}>
+       Online Hospital Appointment
+      </h1> */}
+      <Container>
+        <Row>
+          <Column>
+            <Heading>About Us</Heading>
+            <FooterLink href="#">Aim</FooterLink>
+            <FooterLink href="#">Vision</FooterLink>
+            <FooterLink href="#">Testimonials</FooterLink>
+          </Column>
+          <Column>
+            <Heading>Services</Heading>
+            <FooterLink href="#">Writing</FooterLink>
+            <FooterLink href="#">Internships</FooterLink>
+            <FooterLink href="#">Coding</FooterLink>
+            <FooterLink href="#">Teaching</FooterLink>
+          </Column>
+          <Column>
+            <Heading>Contact Us</Heading>
+            <FooterLink href="#">Uttar Pradesh</FooterLink>
+            <FooterLink href="#">Ahemdabad</FooterLink>
+            <FooterLink href="#">Indore</FooterLink>
+            <FooterLink href="#">Mumbai</FooterLink>
+          </Column>
+          <Column>
+            <Heading>Social Media</Heading>
+            <FooterLink href="#">
+              <i className="fab fa-facebook-f">
+                <span style={{ marginLeft: "10px" }}>
+                  Facebook
+                </span>
+              </i>
+            </FooterLink>
+            <FooterLink href="#">
+              <i className="fab fa-instagram">
+                <span style={{ marginLeft: "10px" }}>
+                  Instagram
+                </span>
+              </i>
+            </FooterLink>
+            <FooterLink href="#">
+              <i className="fab fa-twitter">
+                <span style={{ marginLeft: "10px" }}>
+                  Twitter
+                </span>
+              </i>
+            </FooterLink>
+            <FooterLink href="#">
+              <i className="fab fa-youtube">
+                <span style={{ marginLeft: "10px" }}>
+                  Youtube
+                </span>
+              </i>
+            </FooterLink>
+          </Column>
+        </Row>
+      </Container>
+    </Box>
+ 
           </div>
         );
         

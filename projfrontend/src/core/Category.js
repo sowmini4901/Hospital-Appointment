@@ -23,8 +23,8 @@ direct=false
     )
 })
     return (
-      <div className="card text-dark text-center border rounded-3 " style={{backgroundColor:"#A3C3D9"}}>
-        <div className="card-header lead">{cartTitle}</div>
+      <div className="card text-dark text-center border rounded-3 ">
+        <div className="card-header lead"><b>{cartTitle}</b></div>
         <div className="card-body">
         <img 
       src={image[1]}

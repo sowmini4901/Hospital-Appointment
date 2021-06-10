@@ -107,11 +107,12 @@ const AdminDashBoard =()=>{
           <div className="col-9">
           {adminRightSide()}
           <div className="row">
+          <div className="col-2"></div>  
           <div className="col-3 card mb-4 shadow p-3 mb-5 bg-body rounded-3">
         <h4 >Patients registered</h4>
          <h3 className="text-primary"> <FontAwesomeIcon icon={faUsers} size="sm"/> {patients.length}</h3>
     </div>
-          <div className="col-4"></div>  
+          <div className="col-1"></div>  
     <div className="col-3 card mb-4 shadow p-3 ml-3 mb-5 bg-body rounded-3">
         <h4 >Doctors Available</h4>
         <h3 className="text-primary"> <FontAwesomeIcon icon={faUserMd} size="sm"/> {doctors.length}</h3>

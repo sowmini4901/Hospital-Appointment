@@ -10,20 +10,29 @@ import { loadAppointment } from './helper/AppointmentHelper';
 import Base from './Base';
 
 
-
 export default function Cart(){
+
    const [doctor, setDoctors] = useState([])
+  useEffect(()=>{
+    setDoctors(loadAppointment())
+  })
+
    const loadAllDoctors=()=>{
        return(
            <div>
-               <h2>Where you can book appointment</h2>
+              
+              { (doctor.map((doctor, index)=>(
+                   <Card key={index} doctor={doctor} removeFromCart={true} addtoCart={false}
+                   />
+               )))
+   }
            </div>
        )
    }
    const loadCheckout = ()=>{
        return(
            <div>
-               <h2>This section for checkout</h2>
+               <h2>This section for confirming</h2>
            </div>
        )
    }
@@ -33,7 +42,7 @@ export default function Cart(){
        {//<img src={doctor} alt="doctor" style={{opacity:0.5}}/>;
      }  
      <div className="row">
-         <div className="col-6">{loadAllDoctors()}</div>
+         <div className="col-4">{loadAllDoctors()}</div>
          <div className="col-6">{loadCheckout()}</div>
 
      </div>

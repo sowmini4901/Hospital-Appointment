@@ -17,29 +17,29 @@ const currentTab=(history, path)=>{
 }
 const Nav = ({history}) => (
 <div>
-    <ul className="nav navbar-light shadow p-3 mb-3 bg-body rounded">
+    <ul className="nav shadow p-3 mb-3 bg-body rounded" style={{backgroundColor:"#b2ec5d"}}>
         <li className="nav-item">
         <Link style={currentTab(history,"/")} className="nav-link" to="/">
-        <FontAwesomeIcon icon={faHome} size="lg"/>  Home
+        <FontAwesomeIcon icon={faHome} size="sm"/>  Home
             </Link>
             
         </li>
         <li className="nav-item">
             <Link style={currentTab(history,"/doctors")} className="nav-link" to="/doctors">
-            <FontAwesomeIcon icon={faUserMd} size="lg"/>  Doctors
+            <FontAwesomeIcon icon={faUserMd} size="sm"/> Doctors
             </Link>
         </li>
         {isAuthenticated() && isAuthenticated().user.role===1 && (
             <li className="nav-item">
             <Link style={currentTab(history,"/admin/dashboard")} className="nav-link" to="/admin/dashboard">
-            <FontAwesomeIcon icon={faUserLock} size="lg"/> A.Dashboard
+            <FontAwesomeIcon icon={faUserLock} size="sm"/> A.Dashboard
             </Link>
         </li>
         )}
         {isAuthenticated() && isAuthenticated().user.role===0 && (
             <li className="nav-item">
             <Link style={currentTab(history,"/user/dashboard")} className="nav-link" to="/user/dashboard">
-            <FontAwesomeIcon icon={faUser} size="lg"/> Dashboard
+            <FontAwesomeIcon icon={faUser} size="sm"/> Dashboard
             </Link>
         </li>
         )}
@@ -47,12 +47,12 @@ const Nav = ({history}) => (
              <Fragment>
              <li className="nav-item">
                  <Link style={currentTab(history,"/signup")} className="nav-link" to="/signup">
-                 <FontAwesomeIcon icon={faUserPlus} size="lg"/>   Signup
+                 <FontAwesomeIcon icon={faUserPlus} size="sm"/>  Signup
                  </Link>
              </li>
              <li className="nav-item">
                  <Link style={currentTab(history,"/signin")} className="nav-link" to="/signin">
-                 <FontAwesomeIcon icon={faSignInAlt} size="lg"/> Signin
+                 <FontAwesomeIcon icon={faSignInAlt} size="sm"/> Signin
                  </Link>
              </li>
              </Fragment>
@@ -60,7 +60,7 @@ const Nav = ({history}) => (
        
         <li className="nav-item">
             <Link style={currentTab(history,"/appointment")} className="nav-link" to="/appointment">
-            <FontAwesomeIcon icon={faCalendarCheck} size="lg"/> Appointment
+            <FontAwesomeIcon icon={faCalendarCheck} size="sm"/> Appointment
             </Link>
         </li>
           {isAuthenticated() && (
@@ -70,7 +70,7 @@ const Nav = ({history}) => (
             history.push("/")
            });
        }}>
-        <FontAwesomeIcon icon={faSignOutAlt} size="lg"/> Signout
+        <FontAwesomeIcon icon={faSignOutAlt} size="sm"/> Signout
     </span>
 </li>
           )}

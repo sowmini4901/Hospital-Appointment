@@ -97,7 +97,7 @@ const errorMessage=()=>{
         {successMessage()}
         {errorMessage()}
         
-        <p className="text-dark text-center">{JSON.stringify(values)}</p>
+        {/* <p className="text-dark text-center">{JSON.stringify(values)}</p> */}
         </Base>
       
     );

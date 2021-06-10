@@ -5,7 +5,7 @@ export const addAppointment = (item, next)=>{
           appointment = JSON.parse(localStorage.getItem("appointment"))
 
       }
-    //   if(appointment.length==0)
+    if(appointment.length==0)
       appointment.push({
           ...item
       })
@@ -18,7 +18,6 @@ export const loadAppointment = ()=>{
     if(typeof window !== undefined){
         if(localStorage.getItem("appointment")){
          return JSON.parse(localStorage.getItem("appointment"))
-  
         }
     }
-}
+};

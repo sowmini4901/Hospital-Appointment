@@ -57,18 +57,18 @@ return (
 
 
     return (
-      <div className="card text-white bg-secondary text-center border border-info ">
-        <div className="card-header lead">{cartTitle}</div>
-        <div className="card-body">
+      <div className="card text-dark text-center border " style={{backgroundColor:"#ffffff"}}>
+        <div className="mb-3 mt-2"><b>{cartTitle}</b></div>
+        <div className="">
           {getARedirect(redirect)}
          <ImageHelper doctor={doctor}/>
-          <p className="lead bg-info font-weight-normal text-wrap">
+          <p className="lead font-weight-normal text-dark text-wrap" style={{borderRadius:"2px",borderColor:"#e0b0ff"}}>
             {department}
           </p>
-          <p className="lead bg-info font-weight-normal text-wrap">
+          <p className="lead font-weight-normal text-dark" style={{}}>
             {cartDescription}
           </p>
-          <p className="btn btn-success rounded  btn-sm px-4"> ₹ {cartPrice}</p>
+          <p className="btn rounded  btn-sm px-4" style={{backgroundColor:"#b2ec5d"}}> ₹ {cartPrice}</p>
           <div className="row">
             <div className="col-12">
               {showAddToCart(addtoCart)}
