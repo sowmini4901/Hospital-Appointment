@@ -23,6 +23,7 @@ direct=false
     )
 })
     return (
+    
       <div className="card text-dark text-center border rounded-3 ">
         <div className="card-header"><b>{cartTitle}</b></div>
         <div className="card-body">

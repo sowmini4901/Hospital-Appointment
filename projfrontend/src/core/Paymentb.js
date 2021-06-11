@@ -6,7 +6,7 @@ import { createOrder } from './helper/bookHelper'
 import { getmeToken, processPayment } from './helper/paymentbhelper'
 
 import DropIn from "braintree-web-drop-in-react"
-const Paymentb=({doctor, setReload=f=>f, reload=undefined})=>{
+const Paymentb=({doctor, setReload=f=>f, reload=false})=>{
    
     const [info, setInfo]=useState({
         loading: false,
@@ -77,7 +77,7 @@ const Paymentb=({doctor, setReload=f=>f, reload=undefined})=>{
               // cartEmpty(()=>{
               //     console.log("Did we got a crash?");
               // })
-              // setReload(!reload);
+              setReload(!reload);
             })
             .catch(error => {
               setInfo({ loading: false, success: false });

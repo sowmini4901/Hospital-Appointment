@@ -64,7 +64,7 @@ const AdminDashBoard =()=>{
             </li>
         
             <li className="list-group-item">
-                <Link to="/admin/create/appointments" className="nav-link" style={{color:"#253898 #5737D6"}}>Manage Appointments</Link>
+                <Link to="/admin/appointments" className="nav-link" style={{color:"#253898 #5737D6"}}>Manage Appointments</Link>
             </li>
 
            

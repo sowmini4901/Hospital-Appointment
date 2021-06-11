@@ -82,7 +82,8 @@ export default function Cart(){
 
              </div> */}
          <div className="col-6">
-          <Calendar />
+             {/* <button className="btn btn-info rounded mt-7 ml-3 " >Book a Slot</button> */}
+        <Calendar />
          </div>
 
      </div>

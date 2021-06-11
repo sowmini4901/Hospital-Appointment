@@ -5,7 +5,8 @@ import { AppointmentPicker } from 'react-appointment-picker';
 export default class Calendar extends Component {
   state = {
     loading: false,
-    continuousLoading: false
+    continuousLoading: false,
+    booked:0
   };
 
   addAppointmentCallback = ({
@@ -23,6 +24,7 @@ export default class Calendar extends Component {
         );
         addCb(day, number, time, id);
         this.setState({ loading: false });
+        this.setState({ booked: id})
       }
     );
   };
@@ -97,7 +99,35 @@ export default class Calendar extends Component {
         { id: 30, number: 6, isReserved: true }
       ]
     ];
-    const { loading, continuousLoading } = this.state;
+    const { loading, continuousLoading, booked } = this.state;
+
+//     const successMessage=()=>{
+//       return(
+//           <div className="row">
+//           <div className="col-md-6 offset-sm-3 text-left">
+//       <div className="alert alert-success" style={{display: success ? "":"none"}}
+//        >
+//        Account created successfully. Please <Link to="/signin">Login Here</Link>
+//        </div>
+//        </div>
+//        </div>)
+//       }
+
+      
+// const errorMessage=()=>{
+//   return(
+//    <div className="row">
+//      <div className="col-md-6 offset-sm-3 text-left">
+//   <div className="alert alert-danger" style={{display: error ? "":"none"}}
+//    >
+//   {error}
+//    </div>
+//    </div>
+//    </div>
+//    )
+//   }
+const books=JSON.stringify(days);
+
     return (
       <div>
         <h1>Choose an Appointment</h1>
@@ -106,12 +136,14 @@ export default class Calendar extends Component {
           removeAppointmentCallback={this.removeAppointmentCallback}
           initialDay={new Date('2018-05-05')}
           days={days}
-          maxReservableAppointments={3}
+          maxReservableAppointments={1}
           alpha
           visible
           selectedByDefault
           loading={loading}
         />
+       
+        
      <button className="btn btn-success ml-5 mt-5 rounded">Confirm Appointment</button>
       </div>
     );
