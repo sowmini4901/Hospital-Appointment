@@ -74,10 +74,10 @@ const Paymentb=({doctor, setReload=f=>f, reload=undefined})=>{
             //       amount: response.transaction.amount
 
             //   }
-              cartEmpty(()=>{
-                  console.log("Did we got a crash?");
-              })
-              setReload(!reload);
+              // cartEmpty(()=>{
+              //     console.log("Did we got a crash?");
+              // })
+              // setReload(!reload);
             })
             .catch(error => {
               setInfo({ loading: false, success: false });
