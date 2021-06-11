@@ -1,7 +1,9 @@
 import react, {useState, useEffect} from 'react'
 import { Redirect } from 'react-router';
+import { isAuthenticated } from '../auth/helper';
 import { addAppointment, cancelAppointment } from './helper/AppointmentHelper';
 import ImageHelper from './helper/ImageHelper';
+
 
 const Card = ({doctor,
 addtoCart = true,
@@ -20,7 +22,12 @@ reload=undefined
     const department = doctor ? doctor.specialization: "DEFAULT"
 
     const addToCart = ()=>{
+      if(isAuthenticated())
       addAppointment(doctor, ()=>setRedirect(true))
+
+      if(!isAuthenticated())
+       <Redirect to="/signin" />
+      
     }
 
     const getARedirect=(redirect)=>{
@@ -44,6 +51,11 @@ return (
 )
    }
 
+   const noapp=()=>{
+     return(
+      <h1>You haven't booked any appointments</h1>
+     )
+   }
    const showremoveFromCart = ()=>{
        return(
            removeFromCart && (
@@ -51,6 +63,7 @@ return (
             onClick={() => {
               cancelAppointment(doctor._id);
               setReload(!reload);
+             
             }}
             className="btn btn-block btn-danger rounded mt-2 mb-2"
           >
@@ -59,21 +72,24 @@ return (
            )
        )
 }
-
+        const styling={
+          backgroundColor:"#b2ec5d",
+          cursor: "auto"
+        }
 
     return (
       <div className="card text-dark text-center border " style={{backgroundColor:"#ffffff"}}>
-        <div className="mb-3 mt-2"><b>{cartTitle}</b></div>
+        <div className="mb-3 mt-2"><b>{department}</b></div>
         <div className="">
           {getARedirect(redirect)}
          <ImageHelper doctor={doctor}/>
           <p className="lead font-weight-normal text-dark text-wrap" style={{borderRadius:"2px",borderColor:"#e0b0ff"}}>
-            {department}
+             {cartTitle}
           </p>
           <p className="lead font-weight-normal text-dark" style={{}}>
             {cartDescription}
           </p>
-          <p className="btn rounded  btn-sm px-4" style={{backgroundColor:"#b2ec5d"}}> ₹ {cartPrice}</p>
+          <p className="btn rounded  btn-sm px-4" style={{...styling}}> ₹ {cartPrice}</p>
           <div className="row">
             <div className="col-12">
               {showAddToCart(addtoCart)}

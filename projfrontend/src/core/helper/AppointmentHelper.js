@@ -5,7 +5,7 @@ export const addAppointment = (item, next)=>{
           appointment = JSON.parse(localStorage.getItem("appointment"))
 
       }
-    if(appointment.length==0)
+  
       appointment.push({
           ...item
       })
@@ -13,6 +13,21 @@ export const addAppointment = (item, next)=>{
       next();
   }
 }
+// export const bookAppointment = (item, next)=>{
+//     let appoint=[]
+//     if(typeof window !== undefined){
+//         if(localStorage.getItem("appoint")){
+//             appoint = JSON.parse(localStorage.getItem("appoint"))
+  
+//         }
+//       if(appoint.length==0)
+//         appoint.push({
+//             ...item
+//         })
+//         localStorage.setItem("appoint", JSON.stringify(appoint))
+//         next();
+//     }
+//   }
 
 export const loadAppointment = ()=>{
     if(typeof window !== undefined){
@@ -38,9 +53,27 @@ export const cancelAppointment =(doctorId)=>{
     return appointment;
 }
 
+// export const cancelAppoint =(dayId)=>{
+//     let appoint=[]
+//     if(typeof window !== undefined){
+//         if(localStorage.getItem("appoint")){
+//             appoint = JSON.parse(localStorage.getItem("appoint"))
+  
+//         }
+//         appoint.map((day, i)=>{
+//             if(day._id===dayId)
+//             appoint.splice(i,1)
+//         })
+//         localStorage.setItem("appoint", JSON.stringify(appoint))
+//     }
+//     return appoint;
+// }
+
 export const cartEmpty = next =>{
     if(typeof window !== undefined){
        localStorage.removeItem("appointment");
+       let appointment=[]
+       localStorage.setItem("appointment", JSON.stringify(appointment))
        next();
     }
 }

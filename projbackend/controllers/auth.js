@@ -79,7 +79,7 @@ exports.isSignedIn = expressJwt({
 //next is used for sending req to other middleware and so on to every middleware so it is really important
 exports.isAuthenticated = (req, res, next)=>{
     let checker=req.profile && req.auth && req.profile._id==req.auth._id;
-    if(!checker){
+    if(checker){
         return res.status(403).json({
            error: "ACCESS Denied" 
         });

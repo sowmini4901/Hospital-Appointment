@@ -24,7 +24,7 @@ direct=false
 })
     return (
       <div className="card text-dark text-center border rounded-3 ">
-        <div className="card-header lead"><b>{cartTitle}</b></div>
+        <div className="card-header"><b>{cartTitle}</b></div>
         <div className="card-body">
         <img 
       src={image[1]}
@@ -36,7 +36,7 @@ direct=false
             <div className="col-12">
               <form>
             <button className="btn btn-block rounded mt-2 mb-2" style={{backgroundColor:"#1FC461"}} >
-               <Link to={`/category/${categoryId}`} style={{ textDecoration: 'none' }} className="text-light"> Available Doctors </Link>
+               <Link to={`/category/${categoryId}`} style={{ textDecoration: 'none' }} className="text-light"> Check Available Doctors </Link>
               </button> 
               </form>  
             </div>

@@ -36,6 +36,7 @@ const Routes=()=>{
            <Route path="/doctors" exact component={Doctors} />
            <Route path="/appointment" exact component={Cart} />
            <Route path="/category/:categoryId" exact component={CateDoc} />
+         
        </Switch>
        </BrowserRouter>
     );
